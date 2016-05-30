@@ -1,0 +1,37 @@
+<div class="row post-view">
+	<div class="col-sm-12">
+		<span class="badge post-when">{{post.createdOn | amDateFormat:'dddd, MMMM Do YYYY'}}</span>
+		<h2 class="post-title text-center"><strong>{{post.title}}</strong></h2>
+		<p>{{post.text}}</p>
+		<div class="responses">
+			<label>Comments</label>
+			<ul class="list-group">
+				<li ng-repeat="comment in postComments" class="list-group-item">
+					<img class="" ng-src="{{comment.createdByPic}}"/>
+							<span class="comment-by">{{comment.createdBy}}</span>
+							<span class="comment-when" am-time-ago="comment.createdOn"></span>
+  					<p class="comment-body">{{comment.body}}</p>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="well">
+			<label>Leave a reply</label>
+			<textarea class="comment-write" ng-model="response" placeholder="Enter your comment here if signed in..."></textarea>
+			<button class="btn btn-default btn-primary" ng-if="isAuthenticated()" ng-click="submitResponse()">Submit</button>
+		</div>
+  		<div class="pull-right comment-social-login" ng-hide="isAuthenticated()">
+  			<label>Sign in with </label>
+  			<a class="btn btn-social-icon btn-google" ng-click="authenticate('google')">
+				<span class="fa fa-google"></span>
+				</a>		
+				<a class="btn btn-social-icon btn-facebook" ng-click="authenticate('facebook')">
+				<span class="fa fa-facebook"></span>
+				</a>
+				<a class="btn btn-social-icon btn-twitter" ng-click="authenticate('twitter')">
+				<span class="fa fa-twitter"></span>
+				</a>
+  		</div>
+		
+	</div>
+</div>

@@ -1,0 +1,45 @@
+<!--<div class="jumbotron">
+  <h1>Programmer</h1>
+  <h2>Reader</h2>
+  <h3>Traveller</h3>
+  <h4>Foodie</h4>
+  <p class="lead"></p>
+</div>-->
+
+		
+<div class="jumbotron">
+	<p class="lead">Not the best</p>
+  	<h1>DEVELOPER</h1>
+  	<p class="lead">but trying to bring out the best in me</p>
+</div>
+
+<code class="prettyprint">
+  	{
+  	<br/>	&nbsp;&nbsp;Me : I am a software engineer.
+  	<br/>	&nbsp;&nbsp;Thoughts : Sometimes when I am able to drag myself out of the comfort zone of excuses, I try to pen down my <a ng-href="#/posts">thoughts</a>.
+  	<br/>	&nbsp;&nbsp;Projects : Open source <a ng-href="#/projects">projects</a>.
+	<br/>}
+</code>
+
+
+<div class="page-header timeline-container">A short timeline of the projects I got to work on for my employers as well as some of the open source ones which was sheer <i>fun</i>&nbsp;!!</div>
+
+
+<timeline>
+  <timeline-event ng-repeat="event in events" side="{{event.side}}">
+    <timeline-badge class="{{event.badgeClass}}">
+      <i class="glyphicon {{event.badgeIconClass}}"></i>
+    </timeline-badge>
+    <timeline-panel class="{{event.badgeClass}}">
+      <timeline-heading>
+        <h4><strong>{{event.title}}</strong></h4>
+      </timeline-heading>
+      <span class="">{{event.content}}</span>
+    </timeline-panel>
+  </timeline-event>
+</timeline>
+  
+
+
+
+

@@ -1,0 +1,7 @@
+<ul class="list-group">
+	<li ng-repeat="project in projects" class="list-group-item well">
+			<h2>{{project.title}}</h2>
+			<p class="lead">{{project.text}}</p>
+			<a ng-href="{{project.url}}" target="_blank">{{project.url}}</a>
+	</li>
+</ul>
