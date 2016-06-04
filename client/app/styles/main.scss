@@ -101,7 +101,10 @@ body {
 }
 
 .liWithMarginAndPadding{
-   margin:10px; padding:10px;
+   margin-top:10px; 
+   margin-bottom:10px;
+   margin-right:10px;
+   padding:10px;
 }
 
 .fullPage{
@@ -214,7 +217,7 @@ body {
   }
 }
 
-.post-create{
+.post-save{
   .title-text-area{
     margin-top: 10px;
   }
@@ -238,3 +241,44 @@ body {
   }
 }
 
+.project-save{
+  .title-text-area{
+    margin-top: 10px;
+  }
+  .body-text-area{
+    margin-top: 10px;
+  }
+  .save{
+    margin-top: 10px;
+  }
+}
+
+.project-manage{
+  .edit{
+    margin-left: 5px;
+  }
+  .remove{
+    margin-right: 5px;
+  }
+}
+
+.post-comment-delete{
+  .comment-by{
+    color:#00ab6b;
+    display: inline-block;
+    padding-left:5px;
+    margin: 0px;
+    border:0px;
+    font-size: $fontSizeSmall;    
+    vertical-align: top;
+  }
+
+  .comment-when{
+    display: inline-block;
+    padding-top: 0px;
+    margin: 0px;
+    border:0px;
+    font-size: $fontSizeSmall;
+    vertical-align: bottom;
+  }
+}

@@ -11,7 +11,7 @@ angular.module('clientApp')
   .controller('PostViewCtrl', function ($http, $scope, $routeParams, $auth, $route, Post, Comment) {
     Post.one($routeParams.id).get().then(function(post){
         $scope.post = post;
-        post.getList($routeParams.id + '/comments').then(function(comments){
+        post.getList('comments').then(function(comments){
             $scope.postComments = comments;
         });
     });

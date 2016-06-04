@@ -1,0 +1,12 @@
+<div class="container post-comment-delete">
+	<h3><strong>{{post.title}}</strong></h3>
+	<label>Comments:</label>
+	<ul class="list-group">
+		<li ng-repeat="comment in postComments" class="list-group-item liWithMarginAndPadding well-lg">
+				<span class="comment-by">{{comment.createdBy}}</span>
+				<span class="comment-when" am-time-ago="comment.createdOn"></span>
+				<p>{{comment.body}}</p>
+			<button class="btn btn-danger" ng-click="delete(comment)">Delete</button>	
+		</li>
+	</ul>
+</div>

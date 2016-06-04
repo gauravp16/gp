@@ -1,12 +1,14 @@
 <div class="container post-manage">
+	<a class="btn btn-primary" role="button" ng-href = "#/support/postCreate">Create new</a>
 	<ul class="list-group">
 		<li ng-repeat="post in posts" class="list-group-item liWithMarginAndPadding well-lg">
-			<a ng-href=""><span class="glyphicon glyphicon-pencil pull-right edit"></span></a>
+			<a ng-href="#/support/postUpdate?postId={{post._id}}"><span class="glyphicon glyphicon-pencil pull-right edit"></span></a>
 			<a ng-click="delete(post)"><span class="glyphicon glyphicon-remove pull-right remove"></span></a>
 			<h5 class="clearfix pull-left">
 				<h3 class="text-center"><strong>{{post.title}}</strong></h3>
 				<p>{{post.intro}}</p>
 			</h5>
+			<a class="btn btn-danger" role="button" ng-href="#/support/postCommentDelete?postId={{post._id}}">Delete post comment</a>	
 		</li>
 	</ul>
 </div>

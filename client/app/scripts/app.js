@@ -20,10 +20,14 @@ angular
     'satellizer',
     'angularMoment',
     'angular-timeline',
-    'cgNotify'
+    'cgNotify',
+    'oitozero.ngSweetAlert'
   ])
   .config(function ($routeProvider, RestangularProvider, $authProvider,$httpProvider) {
     RestangularProvider.setBaseUrl('http://localhost:3000');
+    RestangularProvider.setRestangularFields({
+      id: "_id"
+    });
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -60,10 +64,33 @@ angular
         controller: 'PostCreateCtrl'
         //controllerAs: 'postView'
       })
+      .when('/support/postUpdate', {
+        templateUrl: 'views/post-update.html',
+        controller: 'PostUpdateCtrl'
+        //controllerAs: 'postView'
+      })
       .when('/support/managePosts', {
         templateUrl: 'views/post-manage.html',
         controller: 'PostManageCtrl'
         //controllerAs: 'postView'
+      })
+      .when('/support/projectCreate', {
+        templateUrl: 'views/project-create.html',
+        controller: 'ProjectCreateCtrl'
+        //controllerAs: 'postView'
+      })
+      .when('/support/projectUpdate', {
+        templateUrl: 'views/project-update.html',
+        controller: 'ProjectUpdateCtrl'
+        //controllerAs: 'postView'
+      })
+      .when('/support/manageProjects', {
+        templateUrl: 'views/project-manage.html',
+        controller: 'ProjectManageCtrl'
+      })
+      .when('/support/postCommentDelete', {
+        templateUrl: 'views/post-comment-delete.html',
+        controller: 'PostCommentDeleteCtrl'
       })
       .otherwise({
         redirectTo: '/'

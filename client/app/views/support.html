@@ -4,13 +4,8 @@
 	<form role="form" class="actions">
 		<div class="form-group">
 			<button class="btn btn-primary btn-block" ng-click="authenticate()" ng-if="!isAuthenticated()">Login</button>
-			<a class="btn btn-primary btn-block" role="button" ng-href="#/support/postCreate" ng-if="isAuthenticated()">Create post</a>	
 			<a class="btn btn-primary btn-block" role="button" ng-href="#/support/managePosts" ng-if="isAuthenticated()">Manage posts</a>	
-			<a class="btn btn-primary btn-block" role="button" ng-href="#/support/postCreate" ng-if="isAuthenticated()">Create project</a>	
-			<a class="btn btn-primary btn-block" role="button" ng-href="#/support/postCreate" ng-if="isAuthenticated()">Update project</a>	
-			<a class="btn btn-danger btn-block" role="button" ng-href="#/support/postCreate" ng-if="isAuthenticated()">Delete post</a>	
-			<a class="btn btn-danger btn-block" role="button" ng-href="#/support/postCreate" ng-if="isAuthenticated()">Delete project</a>	
-			<a class="btn btn-danger btn-block" role="button" ng-href="#/support/postCreate" ng-if="isAuthenticated()">Delete post comment</a>	
+			<a class="btn btn-primary btn-block" role="button" ng-href="#/support/manageProjects" ng-if="isAuthenticated()">Manage projects</a>	
 		</div>		
 	</form>
 </div>

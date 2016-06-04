@@ -36,6 +36,8 @@ module.exports = function(config) {
       'bower_components/angular-moment/angular-moment.js',
       'bower_components/angular-timeline/dist/angular-timeline.js',
       'bower_components/angular-notify/dist/angular-notify.js',
+      'bower_components/sweetalert/dist/sweetalert.min.js',
+      'bower_components/ngSweetAlert/SweetAlert.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

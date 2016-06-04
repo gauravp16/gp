@@ -1,0 +1,13 @@
+<div class="container project-manage">
+	<a class="btn btn-primary" role="button" ng-href = "#/support/projectCreate">Create new</a>
+	<ul class="list-group">
+		<li ng-repeat="project in projects" class="list-group-item liWithMarginAndPadding well-lg">
+			<a ng-href="#/support/projectUpdate?projectId={{project._id}}"><span class="glyphicon glyphicon-pencil pull-right edit"></span></a>
+			<a ng-click="delete(project)"><span class="glyphicon glyphicon-remove pull-right remove"></span></a>
+			<h5 class="clearfix pull-left">
+				<h3 class="text-center"><strong>{{project.title}}</strong></h3>
+				<p>{{project.text}}</p>
+			</h5>
+		</li>
+	</ul>
+</div>

@@ -8,14 +8,15 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('PostCreateCtrl', function ($scope, notify, Post) {
+  .controller('PostCreateCtrl', function ($scope, Post, notify, $window) {
     $scope.title = "";
     $scope.intro = "";
     $scope.body = "";
 
-  	$scope.create = function() {
+    $scope.save = function(){
       Post.post({'intro': $scope.intro, 'title' : $scope.title, 'text' : $scope.body, 'createdBy': 'Gaurav'}).then(function(){
         notify('post created successfully');
+        $window.location = '#/support/managePosts';
       });
     };
   });
