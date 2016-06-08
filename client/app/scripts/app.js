@@ -29,16 +29,6 @@ angular
       id: "_id"
     });
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
       .when('/posts', {
         templateUrl: 'views/posts.html',
         controller: 'PostsCtrl'
@@ -114,4 +104,13 @@ angular
   }).
   factory('Comment', function(Restangular){
     return Restangular.service('posts/:id/comments');
+  })
+  .run(function($rootScope, $location) {
+      $rootScope.$on("$locationChangeStart", function(event, next, current) { 
+      if($location.path() == "/" || $location.path() == "/about")
+        $rootScope.showHeader = true;
+      else
+        $rootScope.showHeader = false;
+    });
   });
+  

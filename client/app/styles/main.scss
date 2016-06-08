@@ -1,5 +1,6 @@
 // bower:scss
 // endbower
+@import "grayscale";
 
 $textColor: #333;
 $baseFontSize: 16px;
@@ -17,7 +18,7 @@ $fontSizeSmall: $baseFontSize * 0.80;
 }
 
 body {
-  padding: 0;
+  padding-top: 50px;
   font-family: "Open Sans","Microsoft YaHei","Hiragino Sans GB","Hiragino Sans GB W3","微软雅黑","Helvetica Neue",Arial,sans-serif;
   color: $textColor;
   line-height: 1.6em;
@@ -144,9 +145,13 @@ body {
       }
     }
   }
+
+  padding-top: 50px;
 }
 
 .post-view{
+  padding-top: 50px;
+
   row{
     zoom: 1;
   }
@@ -209,6 +214,10 @@ body {
   .comment-social-login{
     margin-bottom: 20px;
   }
+}
+
+.projects{
+  padding-top: 50px;
 }
 
 .support{
