@@ -3,7 +3,7 @@
 @import "grayscale";
 
 $textColor: #333;
-$baseFontSize: 16px;
+$baseFontSize: 18px;
 
 $fontSizeLarge: $baseFontSize * 1.25;
 $fontSizeMediumLarge: $baseFontSize * 1.14;
@@ -19,7 +19,7 @@ $fontSizeSmall: $baseFontSize * 0.80;
 
 body {
   padding-top: 50px;
-  font-family: "Open Sans","Microsoft YaHei","Hiragino Sans GB","Hiragino Sans GB W3","微软雅黑","Helvetica Neue",Arial,sans-serif;
+  font-family: "Open Sans","Microsoft YaHei","Hiragino Sans GB","Hiragino Sans GB W3","Helvetica Neue",Arial,sans-serif;
   color: $textColor;
   line-height: 1.6em;
   font-size: $baseFontSize;
@@ -171,7 +171,7 @@ body {
 
   .comment-body{
     padding: 5px;
-    font-size: $baseFontSize;
+    font-size: $fontSizeMediumSmall;
     margin: 10px;
   }
 
