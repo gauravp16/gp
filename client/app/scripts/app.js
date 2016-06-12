@@ -106,11 +106,13 @@ angular
     return Restangular.service('posts/:id/comments');
   })
   .run(function($rootScope, $location) {
-      $rootScope.$on("$locationChangeStart", function(event, next, current) { 
-      if($location.path() == "/" || $location.path() == "/about")
-        $rootScope.showHeader = true;
-      else
-        $rootScope.showHeader = false;
+      $rootScope.$on("$locationChangeStart", function() { 
+        if($location.path() == "/" || $location.path() == "/about"){
+          $rootScope.showHeader = true;
+        }
+        else{
+          $rootScope.showHeader = false;
+        }
     });
   });
   

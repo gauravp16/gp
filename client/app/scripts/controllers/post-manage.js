@@ -23,9 +23,9 @@ angular.module('clientApp')
 		}, 
 		function(){ 
 		   Post.one(post._id).remove().then(function(){
-    		notify('post removed successfully');
-    		$route.reload();
-    	});
+	    		notify('post removed successfully');
+	    		$route.reload();
+    		});
 		});
-    };
-  });
+   };
+});

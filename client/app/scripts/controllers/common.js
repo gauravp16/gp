@@ -1,3 +1,5 @@
+'use strict';
+
 function collapseNavbar() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
@@ -20,7 +22,7 @@ $(function() {
 });
 
 $('.navbar-collapse ul li a').click(function() {
-  if ($(this).attr('class') != 'dropdown-toggle active' && $(this).attr('class') != 'dropdown-toggle') {
+  if ($(this).attr('class') !== 'dropdown-toggle active' && $(this).attr('class') !== 'dropdown-toggle') {
     $('.navbar-toggle:visible').click();
   }
 });

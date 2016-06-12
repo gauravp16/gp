@@ -23,7 +23,7 @@ angular.module('clientApp')
     };
 
     $scope.authenticate = function(provider) {
-      $auth.authenticate(provider).then(function(response)
+      $auth.authenticate(provider).then(function()
         {
             var token = $auth.getToken();
             $auth.setToken(token);

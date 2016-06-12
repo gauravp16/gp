@@ -17,7 +17,7 @@ angular.module('clientApp')
         heading: '@',
         save: '&'
       },
-      link: function (scope, element, attrs) {
+      link: function () {
       }
     };
   });

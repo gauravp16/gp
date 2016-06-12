@@ -76,14 +76,12 @@ app.post('/auth/facebook', function(req, res, next){
 		      if (response.statusCode !== 200 && profile.error) {
 		        return res.status(500).send({ message: profile.error.message });
 		      }
-		      console.log(profile);
 		      return res.send({token: createUserJWT({name: profile.name, picture: 'https://graph.facebook.com/v2.3/' + profile.id + '/picture?type=small'})}); 
 	  	});
     });
 });
 
 supportRouter.use(function(req, res,next){
-	console.log('here');
 	 if (!req.header('Authorization')) {
     	return res.status(401).send({ message: 'Please make sure your request has an Authorization header' });
   	 }
@@ -93,7 +91,6 @@ supportRouter.use(function(req, res,next){
   	
   	try {
     	payload = jwt.decode(token, config.SUPPORT_TOKEN_SECRET);
-    	console.log(payload);
   	}
   	catch (err) {
   		console.log(err);
@@ -128,8 +125,16 @@ userRouter.use(function(req, res, next){
     	payload = jwt.decode(token, config.USER_TOKEN_SECRET);
   	}
   	catch (err) {
-  		console.log(err);
-    	return res.status(401).send({ message: err.message });
+      console.log(err);  
+      try{
+        payload = jwt.decode(token, config.SUPPORT_TOKEN_SECRET);
+        console.log("not a valid user token but a valid support token");  
+      }
+      catch(err){
+        console.log(err);  
+        return res.status(401).send({ message: err.message });
+      }
+      
   	}
 
   	if (payload.exp <= moment().unix()) {
@@ -146,8 +151,8 @@ app.post('/support', userRouter, function(req, res, next){
   	try {
     	payload = jwt.decode(token, config.USER_TOKEN_SECRET);
     	console.log(payload);
-    	if(payload != null && payload.sub != null && payload.sub.name === 'Gaurav Pathak'){
-    		return res.send({token: createSupportJWT(payload)});
+    	if(payload != null && payload.sub != null && payload.sub.name === 'Gaurav Pathak' && payload.sub.email === 'gauravp16@gmail.com' ){
+    		return res.send({token: upgradeToSupportJWT(payload)});
     	}
     	return res.status(401).send({ message: 'Invalid user token, does not map to a valid support user' });
   	}
@@ -165,20 +170,20 @@ function isSupportUser(profile)
 
 function createUserJWT(profile) {
   var payload = {
-    sub: {name: profile.name, pic: profile.picture},
+    sub: {name: profile.name, pic: profile.picture, email: profile.email},
     iat: moment().unix(),
     exp: moment().add(30, 'minutes').unix()
   };
   return jwt.encode(payload, config.USER_TOKEN_SECRET);
 }
 
-function createSupportJWT(profile) {
-  var payload = {
-    sub: {name: profile.name},
+function upgradeToSupportJWT(userPayload) {
+   var supportPayload = {
+    sub: {name: userPayload.sub.name,pic: userPayload.sub.pic, email: userPayload.sub.email},
     iat: moment().unix(),
     exp: moment().add(10, 'minutes').unix()
   };
-  return jwt.encode(payload, config.SUPPORT_TOKEN_SECRET);
+  return jwt.encode(supportPayload, config.SUPPORT_TOKEN_SECRET);
 }
 
 mongoose.connect('mongodb://localhost/gaurav');

@@ -14,7 +14,7 @@ angular.module('clientApp')
 	});	
 
 	$scope.save = function(){
-		$scope.project.put().then(function(data){
+		$scope.project.put().then(function(){
 			notify('project updated successfully');
 			$window.location = '#/support/manageProjects';
 		});

@@ -2,14 +2,14 @@
 	<div class="col-sm-12">
 		<span class="badge post-when">{{post.createdOn | amDateFormat:'dddd, MMMM Do YYYY'}}</span>
 		<h2 class="post-title text-center"><strong>{{post.title}}</strong></h2>
-		<p>{{post.text}}</p>
+		<p class="text-justify">{{post.text}}</p>
 		<div class="responses">
 			<label>Comments</label>
 			<ul class="list-group">
 				<li ng-repeat="comment in postComments" class="list-group-item">
 					<img class="" ng-src="{{comment.createdByPic}}"/>
-							<span class="comment-by">{{comment.createdBy}}</span>
-							<span class="comment-when" am-time-ago="comment.createdOn"></span>
+					<span class="comment-by">{{comment.createdBy}}</span>
+					<span class="comment-when" am-time-ago="comment.createdOn"></span>
   					<p class="comment-body">{{comment.body}}</p>
 				</li>
 			</ul>
