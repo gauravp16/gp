@@ -99,7 +99,7 @@ var steps = function() {
       // switch to the popup
       browser.switchTo().window(handles[1]);
       var emailInput = browser.driver.findElement(by.id('Email'));      
-      emailInput.sendKeys('gauravp16').then(function(){
+      emailInput.sendKeys('user').then(function(){
         browser.driver.findElement(by.id('next')).click().then(function(){
           browser.driver.sleep(1500);
           browser.driver.findElement(by.id('Passwd')).sendKeys('1234').then(function(){
