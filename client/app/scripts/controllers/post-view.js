@@ -29,7 +29,7 @@ angular.module('clientApp')
             $auth.setToken(token);
         }).
         catch(function (response) {
-            console.debug("catch", response);
+            console.error("catch", response);
       });
     };
 

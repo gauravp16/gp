@@ -73,7 +73,8 @@ module.exports = function (grunt) {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
-        livereload: 35729
+        livereload: 35729,
+        keepAlive: true, 
       },
       livereload: {
         options: {
@@ -96,7 +97,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          port: 9001,
+          port: 9000,
           middleware: function (connect) {
             return [
               connect.static('.tmp'),
@@ -456,9 +457,30 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // Protractor settings
+    protractor: {
+      options: {
+        configFile: "../tests/protractor-conf.js",
+        keepAlive: true, 
+        noColor: false, 
+        args: {
+          // Arguments passed to the command
+        }
+      },
+      all: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+        options: {
+          keepAlive: false, 
+          //configFile: "../tests/protractor-conf.js", // Target-specific config file
+          args: {} // Target-specific arguments
+        }
+      },
     }
   });
-
+  
+  grunt.loadNpmTasks('grunt-selenium-webdriver');
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -512,5 +534,14 @@ module.exports = function (grunt) {
     'newer:jscs',
     'test',
     'build'
+  ]);
+
+  grunt.registerTask('runfeaturetests', [
+    //'selenium_start',
+    'clean:server',
+    'concurrent:server',
+    'connect:test',
+    'protractor'
+    //'selenium_stop'
   ]);
 };

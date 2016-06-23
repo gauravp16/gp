@@ -40,6 +40,7 @@ app.post('/auth/google', function(req, res, next){
 
   	// Step 1. Exchange authorization code for access token.
   	request.post(accessTokenUrl, { json: true, form: params }, function(err, response, token) {
+      console.log(token);
 	    var accessToken = token.access_token;
 	    var headers = { Authorization: 'Bearer ' + accessToken };
 
