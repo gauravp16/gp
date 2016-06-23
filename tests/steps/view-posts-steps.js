@@ -102,7 +102,7 @@ var steps = function() {
       emailInput.sendKeys('gauravp16').then(function(){
         browser.driver.findElement(by.id('next')).click().then(function(){
           browser.driver.sleep(1500);
-          browser.driver.findElement(by.id('Passwd')).sendKeys('powaiA@12').then(function(){
+          browser.driver.findElement(by.id('Passwd')).sendKeys('1234').then(function(){
             browser.driver.findElement(by.id('signIn')).click().then(function(){
               browser.driver.sleep(1500);
               browser.driver.findElement(by.id('submit_approve_access')).click().then(function(){
