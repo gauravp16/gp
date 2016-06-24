@@ -133,7 +133,7 @@ var steps = function() {
   this.When(/^I save the comment$/, {timeout: 200000}, function (callback) {
     //browser.driver.sleep(2000);
     var submit = element(by.buttonText('Submit'));
-    browser.wait(EC.presenceOf(submit), 10000);
+    browser.wait(EC.presenceOf(submit), 100000);
     
     submit.isPresent().then(function(){
       submit.click();      
@@ -145,7 +145,8 @@ var steps = function() {
     browser.waitForAngular();
     element.all(by.repeater('comment in postComments')).then(function(comments){
       expect(comments).to.have.lengthOf(1);
-      //expect(comments[0].element(by.binding('comment.body')))
+      var commentBody = comments[0].element(by.binding('comment.body'));
+      expect(commentBody.getText()).to.eventually.equal('Like it');
       callback();
     });
   });
