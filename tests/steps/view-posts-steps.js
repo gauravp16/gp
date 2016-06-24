@@ -1,9 +1,11 @@
 var chai = require('chai');
+var EC = protractor.ExpectedConditions;
 
 var chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 
 var expect = chai.expect;
+
 
 var steps = function() {
 
@@ -104,10 +106,10 @@ var steps = function() {
           browser.driver.sleep(1500);
           browser.driver.findElement(by.id('Passwd')).sendKeys('1234').then(function(){
             browser.driver.findElement(by.id('signIn')).click().then(function(){
-              browser.driver.sleep(1500);
+              browser.driver.sleep(2000);
               browser.driver.findElement(by.id('submit_approve_access')).click().then(function(){
+                browser.driver.sleep(1500);
                 browser.switchTo().window(handles[0]);
-                browser.driver.sleep(15000);
                 callback();  
               });
             });      
@@ -128,15 +130,23 @@ var steps = function() {
     callback();
   });
 
-  this.When(/^I save the comment$/, {timeout: 200000}, function (arg1,callback) {
-    element(by.buttonText('Submit')).click();
-    callback();
+  this.When(/^I save the comment$/, {timeout: 200000}, function (callback) {
+    //browser.driver.sleep(2000);
+    var submit = element(by.buttonText('Submit'));
+    browser.wait(EC.presenceOf(submit), 10000);
+    
+    submit.isPresent().then(function(){
+      submit.click();      
+      callback();
+    });
   });
 
-  this.Then(/^the comment should be saved successfully$/, {timeout: 200000}, function (arg1,callback) {
+  this.Then(/^the comment should be saved successfully$/, {timeout: 200000}, function (callback) {
+    browser.waitForAngular();
     element.all(by.repeater('comment in postComments')).then(function(comments){
-      expect(comments).to.eventually.have.lengthOf(1);
+      expect(comments).to.have.lengthOf(1);
       //expect(comments[0].element(by.binding('comment.body')))
+      callback();
     });
   });
   

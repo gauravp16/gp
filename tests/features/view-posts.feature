@@ -3,6 +3,18 @@ Feature: HomePage
   I want to visit the home page
   So that I can know more about the author
 
+  Scenario: I should see all the nav bar options
+    Given I am on the homepage
+    Then I should see nav bar option "About Me" 
+    Then I should see nav bar option "Writing" 
+    Then I should see nav bar option "Open Source" 
+    Then I should see nav bar option "Tech Stack" 
+
+  Scenario: I should see all the open source projects
+    Given I am on the homepage
+    When I click nav bar option "Open Source" 
+    Then I should see all the projects
+    And I should see project title
 
    Scenario: I should be able to see all the posts
     Given I am on the homepage
