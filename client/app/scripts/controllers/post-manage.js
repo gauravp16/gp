@@ -19,7 +19,7 @@ angular.module('clientApp')
 		   showCancelButton: true,
 		   confirmButtonColor: "#DD6B55",
 		   confirmButtonText: "Yes, delete it!",
-		   closeOnConfirm: false
+		   closeOnConfirm: true
 		}, 
 		function(){ 
 		   Post.one(post._id).remove().then(function(){
