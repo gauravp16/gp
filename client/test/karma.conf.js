@@ -23,12 +23,8 @@ module.exports = function(config) {
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
-      'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-cookies/angular-cookies.js',
-      'bower_components/angular-resource/angular-resource.js',
-      'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
-      'bower_components/angular-touch/angular-touch.js',
       'bower_components/lodash/lodash.js',
       'bower_components/restangular/dist/restangular.js',
       'bower_components/satellizer/satellizer.js',
@@ -36,6 +32,7 @@ module.exports = function(config) {
       'bower_components/angular-moment/angular-moment.js',
       'bower_components/angular-timeline/dist/angular-timeline.js',
       'bower_components/angular-notify/dist/angular-notify.js',
+      'bower_components/angular-route/angular-route.js',
       'bower_components/sweetalert/dist/sweetalert.min.js',
       'bower_components/ngSweetAlert/SweetAlert.js',
       'bower_components/angular-mocks/angular-mocks.js',
@@ -47,6 +44,9 @@ module.exports = function(config) {
 
     // list of files / patterns to exclude
     exclude: [
+      'app/scripts/controllers/common.js',
+      'app/scripts/controllers/jquery.easing.min.js',
+      'app/scripts/controllers/jquery.js'
     ],
 
     // web server port

@@ -1,23 +1,35 @@
 'use strict';
 
-describe('Controller: PostsCtrl', function () {
+describe('Controller: PostsCtrl', function(){
+	var scope, PostsCtrl, httpBackend;
+	beforeEach(module('clientApp'));
 
-  // load the controller's module
-  beforeEach(module('clientApp'));
 
-  var PostsCtrl,
-    scope;
+	beforeEach(inject(function($controller, $rootScope, Post, $httpBackend){
+		httpBackend = $httpBackend;
+		var posts = [{'title' : 'This is just for test'}];
+		httpBackend.when('GET', 'http://localhost:3000/posts').respond(posts);
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    PostsCtrl = $controller('PostsCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
-  }));
+		scope = $rootScope.$new();
+		PostsCtrl = $controller('PostsCtrl', {'$scope' : scope, 'Post' : Post});
+	}));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(PostsCtrl.awesomeThings.length).toBe(3);
-  });
+	afterEach(function() {
+	    httpBackend.verifyNoOutstandingExpectation();
+	    httpBackend.verifyNoOutstandingRequest();
+	});
+
+	it('should get all the posts', function(){
+		httpBackend.flush();
+
+		expect(scope.posts).toBeDefined();
+		expect(scope.posts.length).toBe(1);
+	});
+
+	it('should get the post title', function(){
+		httpBackend.flush();
+		
+		expect(scope.posts[0].title).toBeDefined();
+		expect(scope.posts[0].title).toBe('This is just for test');
+	});
 });

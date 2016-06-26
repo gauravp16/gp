@@ -1,23 +1,24 @@
 'use strict';
 
-describe('Controller: ProjectsCtrl', function () {
+describe('Controller: ProjectsCtrl', function(){
+	var scope, ProjectsCtrl, httpBackend;
+	beforeEach(module('clientApp'));
 
-  // load the controller's module
-  beforeEach(module('clientApp'));
+	beforeEach(inject(function($controller, $rootScope, Project, $httpBackend){
+		httpBackend = $httpBackend;
+		var projects = [{'title' : 'Simple JS State Machine'}];
+		httpBackend.when('GET', 'http://localhost:3000/projects').respond(projects);
 
-  var ProjectsCtrl,
-    scope;
+		scope = $rootScope.$new();
+		ProjectsCtrl = $controller('ProjectsCtrl', {'$scope' : scope, 'Project' : Project});
+	}));
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    ProjectsCtrl = $controller('ProjectsCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
-  }));
+	it('should get all the projects', function(){
+		httpBackend.flush();
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(ProjectsCtrl.awesomeThings.length).toBe(3);
-  });
+		expect(scope.projects).toBeDefined();
+		expect(scope.projects.length).toBe(1);
+		expect(scope.projects[0].title).toBe('Simple JS State Machine');
+	});
+
 });

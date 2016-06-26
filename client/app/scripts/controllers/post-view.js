@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('PostViewCtrl', function ($http, $scope, $routeParams, $auth, $route, Post, Comment) {
+  .controller('PostViewCtrl', function ($scope, $routeParams, $auth, $route, Post, Comment) {
     Post.one($routeParams.id).get().then(function(post){
         $scope.post = post;
         post.getList('comments').then(function(comments){
@@ -36,9 +36,8 @@ angular.module('clientApp')
     $scope.submitResponse = function(){
         var payload = $auth.getPayload();
         Comment.post({'body': $scope.response, 'postId': $routeParams.id, 'createdBy' : payload.sub.name, 'createdByPic' : payload.sub.pic}, {}, {'Authorization': 'asdlaskskdsdkl'})
-        .then(function(){
-            $route.reload();
+            .then(function(){
+                $route.reload();
         });
-
     };
   });

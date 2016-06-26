@@ -10,12 +10,8 @@
  */
 angular
   .module('clientApp', [
-    'ngAnimate',
     'ngCookies',
-    'ngResource',
     'ngRoute',
-    'ngSanitize',
-    'ngTouch',
     'restangular',
     'satellizer',
     'angularMoment',
