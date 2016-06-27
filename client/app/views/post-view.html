@@ -7,9 +7,11 @@
 			<label>Comments</label>
 			<ul class="list-group">
 				<li ng-repeat="comment in postComments" class="list-group-item">
-					<img class="" ng-src="{{comment.createdByPic}}"/>
-					<span class="comment-by">{{comment.createdBy}}</span>
-					<span class="comment-when" am-time-ago="comment.createdOn"></span>
+					<div class="row">
+						<img class="comment-by-pic" ng-src="{{comment.createdByPic}}"></img>
+						<span class="comment-by">{{comment.createdBy}}</span>
+						<span class="comment-when" am-time-ago="comment.createdOn"></span>
+					</div>
   					<p class="comment-body">{{comment.body}}</p>
 				</li>
 			</ul>
@@ -18,7 +20,7 @@
 		<div class="well">
 			<label>Leave a reply</label>
 			<textarea class="comment-write" ng-model="response" placeholder="Enter your comment here if signed in..."></textarea>
-			<button class="btn btn-default btn-primary" ng-if="isAuthenticated()" ng-click="submitResponse()">Submit</button>
+			<button class="btn btn-primary" ng-if="isAuthenticated()" ng-click="submitResponse()">Submit</button>
 		</div>
   		<div class="pull-right comment-social-login" ng-hide="isAuthenticated()">
   			<label>Sign in with </label>
