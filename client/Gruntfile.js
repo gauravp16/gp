@@ -503,7 +503,7 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
-  grunt.registerTask('test', [
+  grunt.registerTask('unittests', [
     'clean:server',
     'wiredep',
     'concurrent:test',
@@ -537,7 +537,7 @@ module.exports = function (grunt) {
     'build'
   ]);
 
-  grunt.registerTask('runfeaturetests', [
+  grunt.registerTask('featuretests', [
     //'selenium_start',
     'clean:server',
     'concurrent:server',
