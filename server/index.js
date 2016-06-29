@@ -15,6 +15,7 @@ var userRouter = express.Router();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(methodOverride('X-Http-Method-Override'));
+app.use(express.static(__dirname + '/dist'));
 
 app.use(function(req,res,next){
 	res.header('Access-Control-Allow-Origin', '*');
@@ -24,7 +25,7 @@ app.use(function(req,res,next){
 });
 
 app.get('/', function(req, res, next){
-	res.send('Hello there!!');
+	res.render('index.html');
 });
 
 app.post('/auth/google', function(req, res, next){

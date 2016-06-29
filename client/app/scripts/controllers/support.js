@@ -8,12 +8,12 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('SupportCtrl', function ($http, $scope, $routeParams, $auth) {
+  .controller('SupportCtrl', function ($http, $scope, $routeParams, $auth, appConfig) {
 
   	$scope.authenticate = function() {
-      $auth.authenticate('google').then(function(response){
+      $auth.authenticate('google').then(function(){
             var token = $auth.getToken();
-            $http.post('http://localhost:3000/support', {headers : {'Authorization' : token}}).then(function(response){
+            $http.post(appConfig.apiRoot + '/support', {headers : {'Authorization' : token}}).then(function(response){
             	$auth.removeToken();
             	$auth.setToken(response.data.token);
             });

@@ -14,7 +14,7 @@ angular.module('clientApp')
 	});	
 
 	$scope.save = function(){
-		$scope.post.put().then(function(data){
+		$scope.post.put().then(function(){
 			notify('post updated successfully');
 			$window.location = '#/support/managePosts';
 		});

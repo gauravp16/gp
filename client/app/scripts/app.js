@@ -19,8 +19,17 @@ angular
     'cgNotify',
     'oitozero.ngSweetAlert'
   ])
-  .config(function ($routeProvider, RestangularProvider, $authProvider,$httpProvider) {
-    RestangularProvider.setBaseUrl('http://localhost:3000');
+  .provider('appConfig', function ($windowProvider){
+      this.$get = function () {
+        var windowObj = $windowProvider.$get();
+
+        return {
+          apiRoot : windowObj.config.apiRoot
+        };
+      };
+  })
+  .config(function ($routeProvider, RestangularProvider, $authProvider,$httpProvider, appConfigProvider) {
+    RestangularProvider.setBaseUrl(appConfigProvider.$get().apiRoot);
     RestangularProvider.setRestangularFields({
       id: "_id"
     });
@@ -88,8 +97,8 @@ angular
       $authProvider.facebook({
         clientId: '171406263256259'
       }); 
-      $authProvider.baseUrl = 'http://localhost:3000';
-      $httpProvider.baseUrl = 'http://localhost:3000';
+      $authProvider.baseUrl = appConfigProvider.$get().apiRoot;
+      $httpProvider.baseUrl = appConfigProvider.$get().apiRoot;
 
   })
   .factory('Project', function(Restangular){
@@ -103,7 +112,7 @@ angular
   })
   .run(function($rootScope, $location) {
       $rootScope.$on("$locationChangeStart", function() { 
-        if($location.path() == "/" || $location.path() == "/about"){
+        if($location.path() === "/" || $location.path() === "/about"){
           $rootScope.showHeader = true;
         }
         else{
