@@ -28,11 +28,13 @@ angular.module('clientApp')
            confirmButtonText: "Yes, delete it!",
            closeOnConfirm: true
         }, 
-        function(){ 
-            comment.remove().then(function(){
-                notify('comment removed successfully');
-                $route.reload();
-            });   
+        function(isConfirm){ 
+            if(isConfirm){
+              comment.remove().then(function(){
+                  notify('comment removed successfully');
+                  $route.reload();
+              });   
+            }
         });
     };
   });

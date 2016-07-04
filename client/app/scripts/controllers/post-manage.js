@@ -21,11 +21,13 @@ angular.module('clientApp')
 		   confirmButtonText: "Yes, delete it!",
 		   closeOnConfirm: true
 		}, 
-		function(){ 
-		   Post.one(post._id).remove().then(function(){
-	    		notify('post removed successfully');
-	    		$route.reload();
-    		});
+		function(isConfirm){ 
+			if(isConfirm){
+			   Post.one(post._id).remove().then(function(){
+		    		notify('post removed successfully');
+		    		$route.reload();
+	    		});
+			}
 		});
    };
 });
