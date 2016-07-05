@@ -9,7 +9,7 @@
 angular.module('clientApp')
   .directive('projectSave', function () {
     return {
-      templateUrl: '../views/project-save.html',
+      templateUrl: 'views/project-save.html',
       restrict: 'EA',
       scope: {
       	title: '=',

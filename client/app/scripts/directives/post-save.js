@@ -9,7 +9,7 @@
 angular.module('clientApp')
   .directive('postSave', function () {
     return {
-      templateUrl: '../views/post-save.html',
+      templateUrl: 'views/post-save.html',
       restrict: 'EA',
       scope: {
       	title: '=',
