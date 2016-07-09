@@ -188,7 +188,7 @@ function upgradeToSupportJWT(userPayload) {
   return jwt.encode(supportPayload, config.SUPPORT_TOKEN_SECRET);
 }
 
-mongoose.connect('mongodb://localhost/gaurav');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/gaurav');
 mongoose.connection.once('open', function(){
 	//load the models
 	app.models = require('./models/index');
