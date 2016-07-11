@@ -188,7 +188,7 @@ function upgradeToSupportJWT(userPayload) {
   return jwt.encode(supportPayload, config.SUPPORT_TOKEN_SECRET);
 }
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/gaurav');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/gaurav');
 mongoose.connection.once('open', function(){
 	//load the models
 	app.models = require('./models/index');
@@ -196,6 +196,7 @@ mongoose.connection.once('open', function(){
 	_.each(routes, function(controller, route){
 		app.use(route, controller(app, route));
 	});
-	console.log('listening');
-	app.listen(3000);
+  var port = process.env.PORT || 3000;
+	app.listen(port);
+  console.log('listening');
 });

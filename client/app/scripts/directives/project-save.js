@@ -14,6 +14,7 @@ angular.module('clientApp')
       scope: {
       	title: '=',
       	body: '=',
+        url: '=',
         heading: '@',
         save: '&'
       },

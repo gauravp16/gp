@@ -9,7 +9,11 @@ var ProjectSchema = new mongoose.Schema({
 	},
 	url:{
 		type:String
-	}
+	},
+	createdBy:{
+		type:String
+	},
+	createdOn:{ type: Date, default: Date.now }
 });
 
 module.exports = ProjectSchema;
