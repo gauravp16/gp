@@ -72,16 +72,17 @@
     <section id="about" class="container content-section text-center" ng-if="showHeader">
         <div class="row">
             <div class="col-lg-12">
-                <h2>I love coding</h2>
-                <p class="text-justify">I have been a software developer for many years and worked on a lot of interesting and some not so interesting projects for my employers which included Wipro Technologies, Sungard and ThoughtWorks. I am a big fan of open source, I always enjoy contributing to <a ng-href="#/projects">open source</a>. When I am able to drag myself out of the comfort zone of excuses, I <a ng-href="#/posts">write</a> on some interesting stuff.</p>
+                <p class="text-justify">I have been a software developer for many years and worked on a lot of interesting projects for my employers which included Wipro Technologies, Sungard and ThoughtWorks. I am a big fan of <a ng-href="#/projects">open source</a> and enjoy contributing to it. When I am able to drag myself out of the comfort zone of excuses, I <a ng-href="#/posts">write</a> on some interesting stuff.</p>
             </div>
         </div>
     </section>
 
     <section id="summary" class="container content-section text-center" ng-if="showHeader" ng-controller="MainCtrl">
         <div class="row">
+            <h2>Tech stack/architectures worked on so far :</h2>
+                <p class="tech-stack"><span class="badge">C#</span><span class="badge">ASP.NET MVC</span><span class="badge">Javascript</span><span class="badge">AngularJS</span><span class="badge">MEAN stack</span><span class="badge">BDD - Specflow, CucumberJS</span><span class="badge">TDD - NUnit, Jasmine</span><span class="badge">Ruby on Rails</span><span class="badge">WCF</span><p/>
             <div class="col-lg-12">
-                <h2>Tech stack/architectures worked on so far :</h2>
+
                 <timeline>
                   <timeline-event ng-repeat="event in events" side="{{event.side}}">
                     <timeline-badge class="{{event.badgeClass}}">

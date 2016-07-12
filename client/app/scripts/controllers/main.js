@@ -14,7 +14,7 @@ angular.module('clientApp')
 	    badgeClass: 'info',
 	    badgeIconClass: 'glyphicon-check',
 	    title: 'SPA application with CQRS/EventSourcing',
-	    content: 'Front end in AngularJS, web api with Nancy open source framework, micro services exchanging messages/events over NserviceBus, Specflow as BDD tool'
+	    content: 'Front end in AngularJS, web api with Nancy open source framework, services communicating through messages/events over NserviceBus, Specflow as BDD tool'
 	  	}, 
 	  	{
 	    badgeClass: 'info',
