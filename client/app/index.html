@@ -34,7 +34,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                  <a href="https://in.linkedin.com/pub/gaurav-pathak/23/422/290" class="navbar-brand pull-left" style="text-decoration:none;" target="_blank"><span style="font: 80% Arial,sans-serif; color:#0783B6;"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="View Gaurav Pathak's LinkedIn profile" style="vertical-align:middle;" border="0"></span></a>
-                 <a class="navbar-brand" href="/">Home</a>
+                 <a class="navbar-brand" href="/">About</a>
             </div>
 
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -72,6 +72,9 @@
     <section id="about" class="container content-section text-center" ng-if="showHeader">
         <div class="row">
             <div class="col-lg-12">
+                <pre class="prettyprint">class Voila {
+
+                }</pre>
                 <p class="text-justify">I have been a software developer for many years and worked on a lot of interesting projects for my employers which included Wipro Technologies, Sungard and ThoughtWorks. I am a big fan of <a ng-href="#/projects">open source</a> and enjoy contributing to it. When I am able to drag myself out of the comfort zone of excuses, I <a ng-href="#/posts">write</a> on some interesting stuff.</p>
             </div>
         </div>
@@ -79,10 +82,11 @@
 
     <section id="summary" class="container content-section text-center" ng-if="showHeader" ng-controller="MainCtrl">
         <div class="row">
-            <h2>Tech stack/architectures worked on so far :</h2>
-                <p class="tech-stack"><span class="badge">C#</span><span class="badge">ASP.NET MVC</span><span class="badge">Javascript</span><span class="badge">AngularJS</span><span class="badge">MEAN stack</span><span class="badge">BDD - Specflow, CucumberJS</span><span class="badge">TDD - NUnit, Jasmine</span><span class="badge">Ruby on Rails</span><span class="badge">WCF</span><p/>
             <div class="col-lg-12">
-
+                <h2>Tech stack/architectures worked on so far</h2>
+                <p class="tech-stack"><span class="badge">C#</span><span class="badge">ASP.NET MVC</span><span class="badge">Javascript</span><span class="badge">AngularJS</span><span class="badge">MEAN stack</span><span class="badge">BDD - Specflow, CucumberJS</span><span class="badge">TDD - NUnit, Jasmine</span><span class="badge">Ruby on Rails</span><span class="badge">WCF</span><p/>
+            </div>
+            <div class="col-lg-12">
                 <timeline>
                   <timeline-event ng-repeat="event in events" side="{{event.side}}">
                     <timeline-badge class="{{event.badgeClass}}">

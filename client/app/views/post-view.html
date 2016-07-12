@@ -2,7 +2,7 @@
 	<div class="col-sm-12">
 		<span class="badge post-when">{{post.createdOn | amDateFormat:'dddd, MMMM Do YYYY'}}</span>
 		<h2 class="post-title text-center"><strong>{{post.title}}</strong></h2>
-		<p class="text-justify">{{post.text}}</p>
+		<p ng-bind-html="post.text | unsafe" class="text-justify"></p>
 		<div class="responses">
 			<label>Comments</label>
 			<ul class="list-group">

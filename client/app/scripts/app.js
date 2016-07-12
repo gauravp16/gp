@@ -119,5 +119,11 @@ angular
           $rootScope.showHeader = false;
         }
     });
+  })
+  .filter('unsafe', function($sce) {
+    return function(val) {
+        return $sce.trustAsHtml(val);
+    };
   });
+
   
